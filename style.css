@@ -1,0 +1,454 @@
+/* style.css - 最終優化版 (修正排版和水平導覽列質感) */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+/* ====================================
+   1. 基礎與全域樣式
+   ==================================== */
+body {
+    font-family: 'Lato', 'Arial', sans-serif;
+    background-color: #0d1117; 
+    color: #c9d1d9; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* 主標題 */
+h1 {
+    color: #58a6ff;
+    font-size: 3rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    transition: all 0.5s ease-in-out; 
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.home-button {
+    background-color: transparent;
+    color: #c9d1d9;
+    
+    /* 【關鍵修正】使用 fixed 定位，確保它不受 body Flexbox 影響 */
+    position: fixed; 
+    top: 20px;      /* 距離頂部 20px */
+    left: 20px;     /* 距離左側 20px */
+    
+    font-family: 'Lato', 'Arial', sans-serif;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    
+    /* 確保它在最上層，不被其他元素遮擋 */
+    z-index: 1000; 
+}
+
+.home-button:hover {
+    color: #58a6ff;
+    font-size: 1.2rem; 
+    transform: scale(1.1);
+}
+
+
+
+
+
+/* ====================================
+   2. 模式一 (預設): 雙卡並排
+   ==================================== */
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 50px;
+    position: relative; 
+    transition: all 0.7s ease-in-out; 
+}
+
+/* 卡片基底樣式 */
+.card {
+    background-color: #161b22;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    border: 1px solid #30363d;
+    transition: all 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.35); 
+    flex: 1; 
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* 研究成果區塊 (全寬) */
+.research-card {
+    margin-top: 30px;
+    padding: 40px;
+    background-color: #0d1117;
+    border-top: 1px solid #30363d;
+    border-bottom: 1px solid #30363d;
+    width: 70%;
+    text-align: center;
+    transition: all 0.7s ease; 
+}
+
+/* 圖片樣式 */
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #58a6ff;
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+/* Email 連結樣式 */
+.email-link {
+    color: #eef0f1;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.email-link:hover {
+    color: #58a6ff;
+    transform: scale(1.05);
+}
+
+.email-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #58a6ff;
+    transition: width 0.3s ease;
+}
+
+.email-link:hover::after {
+    width: 100%;
+}
+
+/* ====================================
+   社交連結樣式 (Social Links) - 最終修正
+   ==================================== */
+
+/* 設定父容器樣式 */
+.social-links {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* 關鍵修正：針對 a 標籤本身，強制設定所有狀態下的顏色 */
+.social-link-item,
+.social-link-item:link,
+.social-link-item:visited {
+    /* 確保使用淺色文字，覆蓋所有瀏覽器預設的深藍/紫色 */
+    color: #c9d1d9 !important; 
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    
+    /* 讓它能夠進行 hover 放大 */
+    display: inline-block;
+}
+
+.social-link-item:hover {
+    /* 懸停時使用高亮度科技藍 (假設你的亮藍色是 #00caff) */
+    color: #00caff !important; 
+    transform: scale(1.05);
+}
+
+/* 學經歷項目樣式 */
+.experience-item {
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.experience-item h3,
+.experience-item p {
+    display: inline;
+    margin: 0;
+}
+
+/* ====================================
+   3. 模式二 (內容展示): 水平導覽列佈局
+   ==================================== */
+
+/* 導覽列容器 - 預設隱藏 */
+.nav-bar {
+    display: none;
+    /* 改為隨文流定位，置於標題下方 */
+    position: static;
+    margin: 20px auto 0; /* 與標題保持間距並水平置中 */
+    transform: none;
+    
+    background-color: #161b22;
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 50px rgba(88, 166, 255, 0.3);
+    
+    width: 100%;
+    max-width: 1300px;
+    z-index: 50;
+    
+    /* 導覽列內部佈局 */
+    align-items: center;
+    gap: 20px;
+    
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* 導覽列中的照片 */
+.nav-photo {
+    width: 80px; /* 較小的照片尺寸 */
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #58a6ff;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* 導覽列中的選單容器 */
+.nav-menu-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px 25px; /* 標題之間的間距 */
+    flex-grow: 1; /* 佔據剩餘空間 */
+    justify-content: space-evenly;
+    opacity: 0.8; 
+    transition: opacity 0.3s ease;
+}
+
+/* 導覽列中的選單標題 */
+.nav-menu-wrapper .menu-title {
+    /* 關鍵：讓標題可以被均勻分配 */
+    opacity: 1;
+    flex-basis: auto; 
+    width: auto;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+/* 水平導覽列中，選中的標題樣式 */
+.nav-menu-wrapper .menu-title.active {
+    color: #58a6ff; /* 凸顯顏色 */
+    font-weight: bold;
+    /* 增加底線或陰影，增加選中感 */
+    border-bottom: 2px solid #58a6ff; 
+    transform: translateY(-2px);
+    font-size: 1.2rem; 
+    transform: scale(1.1);
+}
+
+/* 確保當選中時，模式一的淡化效果不影響模式二的高亮 */
+.nav-menu-wrapper .menu-title.active.dimmed {
+    opacity: 1; 
+}
+
+
+
+
+/* 內容展示區容器 */
+.content-display {
+    position: fixed; 
+    margin: 200px auto 0; /* 與標題保持間距並水平置中 */
+    /* 修正定位：確保它在水平導覽列下方置中 */
+    top:  40px; /* 根據 nav-bar 實際高度 (約 100px) 調整 */
+    left: 50%;
+    transform: translateX(-50%); /* 水平置中 */
+    
+    /* 【關鍵修正 1】：移除高度固定，讓高度由內容決定 */
+    height: auto; 
+    max-height: calc(100vh - 140px); /* 設定最大高度，避免內容過多時超出螢幕 */
+
+    /* 【關鍵修正 2】：添加卡片質感 */
+    background-color: #161b22; /* 使用與卡片相同的背景色 */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* 更深的陰影 */
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    
+    padding: 30px; /* 內邊距 */
+    
+    width: 100%; /* 寬度佔比 */
+    max-width: 1200px; /* 最大寬度限制 */
+    
+    /* 初始隱藏，只有在 content-open 模式下才顯示 */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 49; 
+    
+    /* 內容排版 */
+    text-align: left;
+    overflow-y: auto; /* 允許內容多時滾動 */
+}
+
+/* 當 content-open 時，顯示內容區 */
+body.content-open .content-display {
+    opacity: 1;
+    pointer-events: auto;
+    
+    /* 確保位置不變，只負責顯示 */
+    top: 120px;
+    transform: translateX(-50%);
+}
+
+
+/*新增內容區塊內的學歷卡片樣式 */
+
+/* 確保內容區塊內的卡片可以水平排列 */
+.edu-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* 讓卡片分散排列 */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* 學歷卡片樣式 (小型化卡片) */
+.edu-card {
+    background-color: #1a222c; /* 比內容區塊背景稍深的顏色 */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border: 1px solid #30363d;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 280px; /* 固定卡片寬度 */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.edu-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(236, 232, 232, 0.6);
+    cursor: pointer;
+}
+
+/* 校徽圖片樣式 (在內容區內) */
+.edu-card img {
+    width: 60px; 
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.edu-card strong {
+    color: #00caff; /* 學校名稱凸顯 */
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.edu-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+
+
+/* ------------------------------------
+   動態狀態切換 (body.content-open) 
+   ------------------------------------ */
+
+/* 1. 隱藏預設模式的內容 */
+/* body.content-open h1, */
+body.content-open .subtitle { /* 確保選中 h1 和 .subtitle */
+    opacity: 0;
+    pointer-events: none; /* 關鍵：確保它不阻擋點擊事件 */
+    transform: translateY(-50px);
+    margin-top: 0;
+    margin-bottom: 0;
+    
+    /* 增加權重，確保覆蓋預設的 opacity */
+    transition: all 0.5s ease-in-out !important; 
+}
+body.content-open .profile-container,
+body.content-open .research-card {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50px);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* 2. 顯示水平導覽列 */
+body.content-open .nav-bar {
+    display: flex; 
+    opacity: 1;
+}
+
+/* 讓導覽列更貼近副標題 */
+body.content-open .subtitle {
+    margin-bottom: 10px;
+}
+
+/* ====================================
+   4. 互動與細節樣式 (通用)
+   ==================================== */
+
+/* 選單標題樣式 */
+.menu-title {
+    color: #c9d1d9;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid transparent; 
+    width: 100%;
+    text-align: center; 
+    transition: all 0.3s ease-in-out; 
+}
+
+/* 懸停時該標題凸顯樣式 (由 JavaScript 控制) */
+.menu-title.highlight {
+    color: #58a6ff; 
+    border-bottom: 1px solid #58a6ff;
+    transform: scale(1.05) translateX(5px);
+    opacity: 1 !important; 
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
+}
+
+/* 其他標題的淡化樣式 (由 JavaScript 控制) */
+.menu-title.dimmed {
+    opacity: 0.2;
+    transform: none;
+    box-shadow: none;
+}
