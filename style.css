@@ -452,3 +452,60 @@ body.content-open .subtitle {
     transform: none;
     box-shadow: none;
 }
+
+/* 1. 興趣卡片的基本結構 */
+.interest-card-item {
+    cursor: pointer;
+    position: relative;
+    /* 確保卡片可以進行 3D 翻轉效果 (如果需要) */
+    transform-style: preserve-3d;
+    transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
+    /* 繼承自 .edu-card 的樣式 */
+}
+
+/* 2. 興趣容器的虛化效果 */
+#interest-container.cards-dimmed .interest-card-item:not(.is-zoomed) {
+    opacity: 0.3; /* 虛化未放大的卡片 */
+    filter: blur(2px);
+}
+
+/* 3. 放大卡片的狀態 */
+.interest-card-item.is-zoomed {
+    z-index: 10; 
+    transform: scale(1.5); /* 放大效果 */
+    position: fixed; /* 固定在螢幕中央 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    opacity: 1 !important; /* 確保放大時不會被虛化 */
+    filter: none !important;
+    width: 300px; /* 放大後的固定寬度 */
+    height: auto;
+    padding: 20px;
+}
+
+/* 4. 卡片的正面/背面內容 */
+.interest-front-face {
+    text-align: center;
+    /* 預設顯示：只有圖標和名稱 */
+}
+
+.interest-back-face {
+    /* 預設隱藏：詳細描述 */
+    opacity: 1; /* 初始值 */
+}
+
+.interest-back-face.hidden-detail {
+    display: none; /* 初始隱藏，直到放大 */
+}
+
+/* 5. 翻牌/詳細內容的顯示 (僅 CSS 範例，JS 邏輯已處理顯示/隱藏) */
+.interest-card-item.is-zoomed .interest-front-face {
+    display: none;
+}
+
+.interest-card-item.is-zoomed .interest-back-face {
+    display: block; /* 放大時顯示詳細內容 */
+    text-align: left;
+}
