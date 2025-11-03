@@ -1,14 +1,27 @@
-/* style.css - 最終優化版 (修正排版和水平導覽列質感) */
+/* style.css - 最終優化版 (修正排版、水平導覽列質感 及 恢復卡片原位放大效果) */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 /* ====================================
-   1. 基礎與全域樣式
-   ==================================== */
+    0. CSS 變數定義 (方便主題調整)
+    ==================================== */
+:root {
+    --primary-color: #58a6ff; /* GitHub Blue */
+    --secondary-color: #00caff; /* Highlight Blue */
+    --dark-bg: #0d1117;
+    --card-bg: #161b22;
+    --card-secondary-bg: #1a222c; /* 學經歷卡片較深的背景 */
+    --border-color: #30363d;
+    --text-color: #c9d1d9;
+}
+
+/* ====================================
+    1. 基礎與全域樣式
+    ==================================== */
 body {
     font-family: 'Lato', 'Arial', sans-serif;
-    background-color: #0d1117; 
-    color: #c9d1d9; 
+    background-color: var(--dark-bg); 
+    color: var(--text-color); 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +33,7 @@ body {
 
 /* 主標題 */
 h1 {
-    color: #58a6ff;
+    color: var(--primary-color);
     font-size: 3rem;
     margin-bottom: 5px;
     letter-spacing: 1px;
@@ -34,37 +47,28 @@ p {
 
 .home-button {
     background-color: transparent;
-    color: #c9d1d9;
-    
-    /* 【關鍵修正】使用 fixed 定位，確保它不受 body Flexbox 影響 */
+    color: var(--text-color);
     position: fixed; 
-    top: 20px;      /* 距離頂部 20px */
-    left: 20px;     /* 距離左側 20px */
-    
+    top: 20px; 
+    left: 20px; 
     font-family: 'Lato', 'Arial', sans-serif;
     padding: 10px 15px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
-    
-    /* 確保它在最上層，不被其他元素遮擋 */
+    transition: color 0.3s ease, transform 0.3s ease;
     z-index: 1000; 
+    display: inline-block; 
 }
 
 .home-button:hover {
-    color: #58a6ff;
-    font-size: 1.2rem; 
+    color: var(--primary-color);
     transform: scale(1.1);
 }
 
-
-
-
-
 /* ====================================
-   2. 模式一 (預設): 雙卡並排
-   ==================================== */
+    2. 模式一 (預設): 雙卡並排
+    ==================================== */
 
 .profile-container {
     display: flex;
@@ -82,11 +86,11 @@ p {
 
 /* 卡片基底樣式 */
 .card {
-    background-color: #161b22;
+    background-color: var(--card-bg);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    border: 1px solid #30363d;
+    border: 1px solid var(--border-color);
     transition: all 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.35); 
     flex: 1; 
     max-width: none;
@@ -106,9 +110,9 @@ p {
 .research-card {
     margin-top: 30px;
     padding: 40px;
-    background-color: #0d1117;
-    border-top: 1px solid #30363d;
-    border-bottom: 1px solid #30363d;
+    background-color: var(--dark-bg);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
     width: 70%;
     text-align: center;
     transition: all 0.7s ease; 
@@ -120,7 +124,7 @@ p {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #58a6ff;
+    border: 3px solid var(--primary-color);
     box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
     margin-bottom: 20px;
 }
@@ -137,7 +141,7 @@ p {
 }
 
 .email-link:hover {
-    color: #58a6ff;
+    color: var(--primary-color);
     transform: scale(1.05);
 }
 
@@ -148,7 +152,7 @@ p {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #58a6ff;
+    background-color: var(--primary-color);
     transition: width 0.3s ease;
 }
 
@@ -156,85 +160,54 @@ p {
     width: 100%;
 }
 
-/* ====================================
-   社交連結樣式 (Social Links) - 最終修正
-   ==================================== */
-
-/* 設定父容器樣式 */
+/* 社交連結樣式 */
 .social-links {
     margin-top: 10px;
     font-size: 1.1rem;
     text-align: center;
 }
-
-/* 關鍵修正：針對 a 標籤本身，強制設定所有狀態下的顏色 */
 .social-link-item,
 .social-link-item:link,
 .social-link-item:visited {
-    /* 確保使用淺色文字，覆蓋所有瀏覽器預設的深藍/紫色 */
-    color: #c9d1d9 !important; 
+    color: var(--text-color) !important; 
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
-    
-    /* 讓它能夠進行 hover 放大 */
     display: inline-block;
 }
-
 .social-link-item:hover {
-    /* 懸停時使用高亮度科技藍 (假設你的亮藍色是 #00caff) */
-    color: #00caff !important; 
+    color: var(--secondary-color) !important; 
     transform: scale(1.05);
 }
 
-/* 學經歷項目樣式 */
-.experience-item {
-    margin-bottom: 15px;
-    width: 100%;
-    text-align: center;
-}
-
-.experience-item h3,
-.experience-item p {
-    display: inline;
-    margin: 0;
-}
-
 /* ====================================
-   3. 模式二 (內容展示): 水平導覽列佈局
-   ==================================== */
+    3. 模式二 (內容展示): 水平導覽列佈局
+    ==================================== */
 
-/* 導覽列容器 - 預設隱藏 */
+/* 導覽列容器 */
 .nav-bar {
     display: none;
-    /* 改為隨文流定位，置於標題下方 */
     position: static;
-    margin: 20px auto 0; /* 與標題保持間距並水平置中 */
-    transform: none;
-    
-    background-color: #161b22;
+    margin: 20px auto 0; 
+    background-color: var(--card-bg);
     padding: 10px 20px;
     border-radius: 12px;
     box-shadow: 0 0 50px rgba(88, 166, 255, 0.3);
-    
     width: 100%;
     max-width: 1300px;
     z-index: 50;
-    
-    /* 導覽列內部佈局 */
     align-items: center;
     gap: 20px;
-    
     opacity: 0;
     transition: opacity 0.5s ease;
 }
 
 /* 導覽列中的照片 */
 .nav-photo {
-    width: 80px; /* 較小的照片尺寸 */
+    width: 80px; 
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #58a6ff;
+    border: 3px solid var(--primary-color);
     flex-shrink: 0;
     cursor: pointer;
 }
@@ -244,17 +217,15 @@ p {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-start;
-    gap: 10px 25px; /* 標題之間的間距 */
-    flex-grow: 1; /* 佔據剩餘空間 */
     justify-content: space-evenly;
+    gap: 10px 25px; 
+    flex-grow: 1; 
     opacity: 0.8; 
     transition: opacity 0.3s ease;
 }
 
 /* 導覽列中的選單標題 */
 .nav-menu-wrapper .menu-title {
-    /* 關鍵：讓標題可以被均勻分配 */
     opacity: 1;
     flex-basis: auto; 
     width: auto;
@@ -262,108 +233,105 @@ p {
     margin-bottom: 0;
     padding-bottom: 0;
     text-align: center;
+    cursor: pointer;
 }
 
 /* 水平導覽列中，選中的標題樣式 */
 .nav-menu-wrapper .menu-title.active {
-    color: #58a6ff; /* 凸顯顏色 */
+    color: var(--primary-color); 
     font-weight: bold;
-    /* 增加底線或陰影，增加選中感 */
-    border-bottom: 2px solid #58a6ff; 
-    transform: translateY(-2px);
-    font-size: 1.2rem; 
+    border-bottom: 2px solid var(--primary-color); 
     transform: scale(1.1);
+    font-size: 1.2rem; 
 }
-
-/* 確保當選中時，模式一的淡化效果不影響模式二的高亮 */
-.nav-menu-wrapper .menu-title.active.dimmed {
-    opacity: 1; 
-}
-
-
 
 
 /* 內容展示區容器 */
 .content-display {
     position: fixed; 
-    margin: 200px auto 0; /* 與標題保持間距並水平置中 */
-    /* 修正定位：確保它在水平導覽列下方置中 */
-    top:  40px; /* 根據 nav-bar 實際高度 (約 100px) 調整 */
+    margin: 200px auto 0; 
+    top: 40px; 
     left: 50%;
-    transform: translateX(-50%); /* 水平置中 */
-    
-    /* 【關鍵修正 1】：移除高度固定，讓高度由內容決定 */
+    transform: translateX(-50%); 
     height: auto; 
-    max-height: calc(100vh - 140px); /* 設定最大高度，避免內容過多時超出螢幕 */
-
-    /* 【關鍵修正 2】：添加卡片質感 */
-    background-color: #161b22; /* 使用與卡片相同的背景色 */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* 更深的陰影 */
-    border: 1px solid #30363d;
+    max-height: calc(100vh - 140px); 
+    background-color: var(--card-bg); 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); 
+    border: 1px solid var(--border-color);
     border-radius: 12px;
-    
-    padding: 30px; /* 內邊距 */
-    
-    width: 100%; /* 寬度佔比 */
-    max-width: 1200px; /* 最大寬度限制 */
-    
-    /* 初始隱藏，只有在 content-open 模式下才顯示 */
+    padding: 30px; 
+    width: 100%; 
+    max-width: 1200px; 
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
     z-index: 49; 
-    
-    /* 內容排版 */
     text-align: left;
-    overflow-y: auto; /* 允許內容多時滾動 */
+    overflow-y: auto; 
 }
 
 /* 當 content-open 時，顯示內容區 */
 body.content-open .content-display {
     opacity: 1;
     pointer-events: auto;
-    
-    /* 確保位置不變，只負責顯示 */
     top: 120px;
     transform: translateX(-50%);
 }
 
+/* ------------------------------------
+    動態狀態切換 (body.content-open) 
+    ------------------------------------ */
+body.content-open h1,
+body.content-open .subtitle,
+body.content-open .profile-container,
+body.content-open .research-card {
+    opacity: 0;
+    pointer-events: none; 
+    transform: translateY(-50px);
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: all 0.5s ease-in-out !important; 
+}
+body.content-open .nav-bar {
+    display: flex; 
+    opacity: 1;
+}
 
-/*新增內容區塊內的學歷卡片樣式 */
+/* ====================================
+    4. 卡片容器與基礎卡片樣式
+    ==================================== */
 
-/* 確保內容區塊內的卡片可以水平排列 */
+/* 學經歷/興趣卡片容器 */
 .edu-card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; /* 讓卡片分散排列 */
+    justify-content: space-around; 
     gap: 20px;
     margin-top: 20px;
 }
 
-/* 學歷卡片樣式 (小型化卡片) */
+/* 基礎卡片樣式 (小型化卡片) */
 .edu-card {
-    background-color: #1a222c; /* 比內容區塊背景稍深的顏色 */
+    background-color: var(--card-secondary-bg); 
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    border: 1px solid #30363d;
-    
+    border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    width: 280px; /* 固定卡片寬度 */
+    width: 280px; 
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    position: relative; 
+    cursor: pointer;
 }
 
 .edu-card:hover {
     transform: scale(1.03);
-    box-shadow: 0 6px 15px rgba(236, 232, 232, 0.6);
-    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(88, 166, 255, 0.3);
 }
 
-/* 校徽圖片樣式 (在內容區內) */
 .edu-card img {
     width: 60px; 
     height: 60px;
@@ -372,7 +340,7 @@ body.content-open .content-display {
 }
 
 .edu-card strong {
-    color: #00caff; /* 學校名稱凸顯 */
+    color: var(--secondary-color); 
     font-size: 1.1rem;
     margin-bottom: 5px;
 }
@@ -382,130 +350,121 @@ body.content-open .content-display {
     margin-bottom: 0;
 }
 
-
-
-/* ------------------------------------
-   動態狀態切換 (body.content-open) 
-   ------------------------------------ */
-
-/* 1. 隱藏預設模式的內容 */
-/* body.content-open h1, */
-body.content-open .subtitle { /* 確保選中 h1 和 .subtitle */
-    opacity: 0;
-    pointer-events: none; /* 關鍵：確保它不阻擋點擊事件 */
-    transform: translateY(-50px);
-    margin-top: 0;
-    margin-bottom: 0;
-    
-    /* 增加權重，確保覆蓋預設的 opacity */
-    transition: all 0.5s ease-in-out !important; 
-}
-body.content-open .profile-container,
-body.content-open .research-card {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-50px);
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/* 2. 顯示水平導覽列 */
-body.content-open .nav-bar {
-    display: flex; 
-    opacity: 1;
-}
-
-/* 讓導覽列更貼近副標題 */
-body.content-open .subtitle {
-    margin-bottom: 10px;
-}
-
-/* ====================================
-   4. 互動與細節樣式 (通用)
-   ==================================== */
-
-/* 選單標題樣式 */
-.menu-title {
-    color: #c9d1d9;
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid transparent; 
-    width: 100%;
-    text-align: center; 
-    transition: all 0.3s ease-in-out; 
-}
-
-/* 懸停時該標題凸顯樣式 (由 JavaScript 控制) */
-.menu-title.highlight {
-    color: #58a6ff; 
-    border-bottom: 1px solid #58a6ff;
-    transform: scale(1.05) translateX(5px);
-    opacity: 1 !important; 
-    box-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
-}
-
-/* 其他標題的淡化樣式 (由 JavaScript 控制) */
-.menu-title.dimmed {
-    opacity: 0.2;
-    transform: none;
-    box-shadow: none;
-}
-
-/* 1. 興趣卡片的基本結構 */
-.interest-card-item {
-    cursor: pointer;
-    position: relative;
-    /* 確保卡片可以進行 3D 翻轉效果 (如果需要) */
-    transform-style: preserve-3d;
-    transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
-    /* 繼承自 .edu-card 的樣式 */
-}
-
-/* 2. 興趣容器的虛化效果 */
-#interest-container.cards-dimmed .interest-card-item:not(.is-zoomed) {
-    opacity: 0.3; /* 虛化未放大的卡片 */
-    filter: blur(2px);
-}
-
-/* 3. 放大卡片的狀態 */
-.interest-card-item.is-zoomed {
-    z-index: 10; 
-    transform: scale(1.5); /* 放大效果 */
-    position: fixed; /* 固定在螢幕中央 */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.2); 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
-    opacity: 1 !important; /* 確保放大時不會被虛化 */
-    filter: none !important;
-    width: 300px; /* 放大後的固定寬度 */
-    height: auto;
-    padding: 20px;
-}
-
-/* 4. 卡片的正面/背面內容 */
-.interest-front-face {
-    text-align: center;
-    /* 預設顯示：只有圖標和名稱 */
-}
-
-.interest-back-face {
-    /* 預設隱藏：詳細描述 */
-    opacity: 1; /* 初始值 */
-}
-
-.interest-back-face.hidden-detail {
-    display: none; /* 初始隱藏，直到放大 */
-}
-
-/* 5. 翻牌/詳細內容的顯示 (僅 CSS 範例，JS 邏輯已處理顯示/隱藏) */
-.interest-card-item.is-zoomed .interest-front-face {
+/* 隱藏細節默認是隱藏的 */
+.edu-card .hidden-detail {
     display: none;
 }
 
-.interest-card-item.is-zoomed .interest-back-face {
-    display: block; /* 放大時顯示詳細內容 */
+
+/* ================================================= */
+/* 5. 互動卡片效果 (原位放大邏輯) */
+/* ================================================= */
+
+/* 1. 【統一原位放大樣式】適用於所有 .card-item (學經歷 and 興趣) */
+.card-item.is-zoomed {
+    /* 原位放大，無需複雜的定位 */
+    transform: scale(1.2) !important; 
+    
+    /* 提升層級，使其浮在其他卡片上方 */
+    z-index: 1000 !important; 
+    
+    /* 確保不會被虛化 */
+    opacity: 1 !important; 
+    filter: none !important;
+    
+    /* 放大後的外觀 */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7); 
+    cursor: zoom-out;
+    
+    /* 顯示隱藏的細節 */
+    
+    /* 調整寬度，確保內容不溢出 (如果需要) */
+    /* width: auto; height: auto; */
+}
+
+
+/* 2. 虛化效果 (統一適用於所有卡片容器) */
+.edu-card-container.cards-dimmed .card-item:not(.is-zoomed) {
+    opacity: 0.3; 
+    pointer-events: none; 
+    filter: blur(2px); 
+}
+
+
+/* 3. 隱藏細節的顯示邏輯 (通用) */
+.card-item.is-zoomed .hidden-detail {
+    display: block !important; 
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* ====================================
+    6. 學經歷詳細內容顯示區 (#education-detail-area / .edu-container)
+    ==================================== */
+
+/* 詳細資訊顯示區域的樣式 */
+#education-detail-area {
+    /* 繼承自 .card 的基本樣式 */
+    background-color: var(--dark-bg); 
+    
+    width: 90%; 
+    max-width: 800px; 
+    margin: 30px auto; 
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    color: var(--text-color);
     text-align: left;
+    line-height: 1.6;
+    min-height: 130px; 
+    transition: all 0.5s ease-out; 
+    border: 1px solid var(--border-color);
+    
+    /* 【關鍵修正 1】：初始隱藏 */
+    opacity: 0;
+    pointer-events: none; /* 確保不阻擋點擊事件 */
+    transform: translateY(20px); /* 初始位置略為向下，用於淡入動畫 */
+}
+
+/* 初始提示文字的樣式 */
+/* 當 #education-detail-area 擁有 empty-detail 類別時（未點擊或清空內容），保持隱藏 */
+#education-detail-area.empty-detail {
+    /* 【關鍵修正 2】：保持隱藏狀態的樣式 */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    
+    /* 確保內容居中，以便在顯示時正確對齊 */
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 當內容被注入 (移除 empty-detail 類別) 時，顯示 */
+#education-detail-area:not(.empty-detail) {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* 確保內容的排版 */
+#education-detail-area h3 {
+    color: var(--secondary-color); 
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+#education-detail-area ul {
+    list-style-type: square;
+    padding-left: 25px;
+}
+
+/* 隱藏用於 JS 抓取的詳細內容 */
+.card-extra-detail {
+    display: none; 
 }
