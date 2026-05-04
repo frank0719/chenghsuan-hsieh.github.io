@@ -50,33 +50,9 @@ function generateInterestCards(data) {
                 <div id="svg-map-layer"></div>
                 
                 <!-- 足跡標記點：基於百分比定位 -->
-                <div class="marker" style="top: 39.03%; left: 26.58%;" data-info="<h3>西雅圖</h3><p>美國</p>"></div>
-                <div class="marker" style="top: 43.68%; left: 27.42%;" data-info="<h3>拉斯維加斯</h3><p>美國</p>"></div>
-                <div class="marker" style="top: 45.54%; left: 27.97%;" data-info="<h3>亞歷桑那</h3><p>美國</p>"></div>
-                <div class="marker" style="top: 43.87%; left: 71.28%;" data-info="<h3>北京</h3><p>中國</p>"></div>
-                <div class="marker" style="top: 48.14%; left: 73.23%;" data-info="<h3>上海</h3><p>中國</p>"></div>
-                <div class="marker" style="top: 48.33%; left: 72.49%;" data-info="<h3>蘇杭</h3><p>中國</p>"></div>
-                <div class="marker" style="top: 53.16%; left: 71.75%;" data-info="<h3>港澳</h3><p>中國</p>"></div>
-                <div class="marker" style="top: 55.02%; left: 71.47%;" data-info="<h3>海南</h3><p>中國</p>"></div>
-                <div class="marker" style="top: 52.60%; left: 64.50%;" data-info="<h3>新德里</h3><p>印度</p>"></div>
-                <div class="marker" style="top: 53.53%; left: 65.43%;" data-info="<h3>瓦拉納西</h3><p>印度</p>"></div>
-                <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>海得拉巴</h3><p>印度</p>"></div>
-                <div class="marker" style="top: 31.23%; left: 121.47%;" data-info="<h3>胡志明</h3><p>越南</p>"></div>
-                <div class="marker" style="top: 28.61%; left: 77.20%;" data-info="<h3>曼谷</h3><p>泰國</p>"></div>
-                <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>吉隆坡</h3><p>馬來西亞</p>"></div>
-                <div class="marker" style="top: 1.29%; left: 103.85%;" data-info="<h3>馬六甲</h3><p>馬來西亞</p>"></div>
-                <div class="marker" style="top: 1.35%; left: 103.82%;" data-info="<h3>新加坡</h3><p>新加坡</p>"></div>
-                <div class="marker" style="top: 13.41%; left: 122.56%;" data-info="<h3>宿霧</h3><p>菲律賓</p>"></div>
-                <div class="marker" style="top: 8.34%; left: 115.17%;" data-info="<h3>科摩多島</h3><p>印尼</p>"></div>
-                <div class="marker" style="top: 20.59%; left: 106.85%;" data-info="<h3>峇厘島</h3><p>印尼</p>"></div>
-                <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>東京</h3><p>日本</p>"></div>
-                <div class="marker" style="top: 34.69%; left: 135.50%;" data-info="<h3>大阪</h3><p>日本</p>"></div>
-                <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>京都</h3><p>日本</p>"></div>
-                <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>沖繩</h3><p>日本</p>"></div>
-                <div class="marker" style="top: 37.77%; left: 122.42%;" data-info="<h3>北海道</h3><p>日本</p>"></div>
-                <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>名古屋</h3><p>日本</p>"></div>
-                <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>高山</h3><p>日本</p>"></div>
-                <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>釜山</h3><p>韓國</p>"></div>
+                <div class="marker" style="top: 32.16%; left: 22.96%;" data-info="美國" ></div>
+                <div class="marker" style="top: 34.39%; left: 77.70%;;" data-info="中國" ></div>
+
 
 
                 <div id="map-tooltip" class="map-tooltip"></div>
@@ -495,3 +471,31 @@ async function loadAndInitMap(containerId) {
         console.error('地圖檔案載入失敗，請確認 world.svg 與 index.html 在同一資料夾', err);
     }
 }
+
+                // <div class="marker" style="top: 39.03%; left: 26.58%;" data-info="<h3>西雅圖</h3><p>美國</p>"></div>
+                // <div class="marker" style="top: 43.68%; left: 27.42%;" data-info="<h3>拉斯維加斯</h3><p>美國</p>"></div>
+                // <div class="marker" style="top: 45.54%; left: 27.97%;" data-info="<h3>亞歷桑那</h3><p>美國</p>"></div>
+                // <div class="marker" style="top: 43.87%; left: 71.28%;" data-info="<h3>北京</h3><p>中國</p>"></div>
+                // <div class="marker" style="top: 48.14%; left: 73.23%;" data-info="<h3>上海</h3><p>中國</p>"></div>
+                // <div class="marker" style="top: 48.33%; left: 72.49%;" data-info="<h3>蘇杭</h3><p>中國</p>"></div>
+                // <div class="marker" style="top: 53.16%; left: 71.75%;" data-info="<h3>港澳</h3><p>中國</p>"></div>
+                // <div class="marker" style="top: 55.02%; left: 71.47%;" data-info="<h3>海南</h3><p>中國</p>"></div>
+                // <div class="marker" style="top: 52.60%; left: 64.50%;" data-info="<h3>新德里</h3><p>印度</p>"></div>
+                // <div class="marker" style="top: 53.53%; left: 65.43%;" data-info="<h3>瓦拉納西</h3><p>印度</p>"></div>
+                // <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>海得拉巴</h3><p>印度</p>"></div>
+                // <div class="marker" style="top: 31.23%; left: 121.47%;" data-info="<h3>胡志明</h3><p>越南</p>"></div>
+                // <div class="marker" style="top: 28.61%; left: 77.20%;" data-info="<h3>曼谷</h3><p>泰國</p>"></div>
+                // <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>吉隆坡</h3><p>馬來西亞</p>"></div>
+                // <div class="marker" style="top: 1.29%; left: 103.85%;" data-info="<h3>馬六甲</h3><p>馬來西亞</p>"></div>
+                // <div class="marker" style="top: 1.35%; left: 103.82%;" data-info="<h3>新加坡</h3><p>新加坡</p>"></div>
+                // <div class="marker" style="top: 13.41%; left: 122.56%;" data-info="<h3>宿霧</h3><p>菲律賓</p>"></div>
+                // <div class="marker" style="top: 8.34%; left: 115.17%;" data-info="<h3>科摩多島</h3><p>印尼</p>"></div>
+                // <div class="marker" style="top: 20.59%; left: 106.85%;" data-info="<h3>峇厘島</h3><p>印尼</p>"></div>
+                // <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>東京</h3><p>日本</p>"></div>
+                // <div class="marker" style="top: 34.69%; left: 135.50%;" data-info="<h3>大阪</h3><p>日本</p>"></div>
+                // <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>京都</h3><p>日本</p>"></div>
+                // <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>沖繩</h3><p>日本</p>"></div>
+                // <div class="marker" style="top: 37.77%; left: 122.42%;" data-info="<h3>北海道</h3><p>日本</p>"></div>
+                // <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>名古屋</h3><p>日本</p>"></div>
+                // <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>高山</h3><p>日本</p>"></div>
+                // <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>釜山</h3><p>韓國</p>"></div>
