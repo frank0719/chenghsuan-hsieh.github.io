@@ -54,13 +54,12 @@ function generateInterestCards(data) {
                 <div class="marker" style="top: 43.68%; left: 27.42%;" data-info="<h3>拉斯維加斯</h3><p>美國</p>"></div>
                 <div class="marker" style="top: 45.54%; left: 27.97%;" data-info="<h3>亞歷桑那</h3><p>美國</p>"></div>
                 <div class="marker" style="top: 43.87%; left: 71.28%;" data-info="<h3>北京</h3><p>中國</p>"></div>
-                <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>上海</h3><p>中國</p>"></div>
-                <div class="marker" style="top: 25.03%; left: 121.56%;" data-info="<h3>蘇州</h3><p>中國</p>"></div>
-                <div class="marker" style="top: 22.32%; left: 114.17%;" data-info="<h3>杭州</h3><p>中國</p>"></div>
-                <div class="marker" style="top: 24.48%; left: 118.18%;" data-info="<h3>港澳</h3><p>中國</p>"></div>
-                <div class="marker" style="top: 37.77%; left: 122.42%;" data-info="<h3>海南</h3><p>中國</p>"></div>
-                <div class="marker" style="top: 31.23%; left: 121.47%;" data-info="<h3>新德里</h3><p>印度</p>"></div>
-                <div class="marker" style="top: 28.61%; left: 77.20%;" data-info="<h3>瓦拉納西</h3><p>印度</p>"></div>
+                <div class="marker" style="top: 48.14%; left: 73.23%;" data-info="<h3>上海</h3><p>中國</p>"></div>
+                <div class="marker" style="top: 48.33%; left: 72.49%;" data-info="<h3>蘇杭</h3><p>中國</p>"></div>
+                <div class="marker" style="top: 53.16%; left: 71.75%;" data-info="<h3>港澳</h3><p>中國</p>"></div>
+                <div class="marker" style="top: 55.02%; left: 71.47%;" data-info="<h3>海南</h3><p>中國</p>"></div>
+                <div class="marker" style="top: 52.60%; left: 64.50%;" data-info="<h3>新德里</h3><p>印度</p>"></div>
+                <div class="marker" style="top: 53.53%; left: 65.43%;" data-info="<h3>瓦拉納西</h3><p>印度</p>"></div>
                 <div class="marker" style="top: 35.68%; left: 139.69%;" data-info="<h3>海得拉巴</h3><p>印度</p>"></div>
                 <div class="marker" style="top: 31.23%; left: 121.47%;" data-info="<h3>胡志明</h3><p>越南</p>"></div>
                 <div class="marker" style="top: 28.61%; left: 77.20%;" data-info="<h3>曼谷</h3><p>泰國</p>"></div>
