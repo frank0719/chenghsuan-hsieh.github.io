@@ -52,6 +52,7 @@ function generateInterestCards(data) {
                 <!-- 足跡標記點：基於百分比定位 -->
                 <div class="marker" style="top: 32.16%; left: 22.96%;" data-info="美國" ></div>
                 <div class="marker" style="top: 34.39%; left: 77.70%;;" data-info="中國" ></div>
+                
 
 
 
