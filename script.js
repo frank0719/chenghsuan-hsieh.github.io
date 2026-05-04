@@ -50,9 +50,21 @@ function generateInterestCards(data) {
                 <div id="svg-map-layer"></div>
                 
                 <!-- 足跡標記點：基於百分比定位 -->
-                <div class="marker" style="top: 32.16%; left: 22.96%;" data-info="美國" ></div>
-                <div class="marker" style="top: 34.39%; left: 77.70%;;" data-info="中國" ></div>
-                
+                <div class="marker" style="top: 32.16%; left: 22.96%;" data-info="美國"></div>
+                <div class="marker" style="top: 34.39%; left: 77.70%;;" data-info="中國"></div>
+                <div class="marker" style="top: 34.01%; left: 85.87%;" data-info="日本"></div>
+                <div class="marker" style="top: 34.39%; left: 85.97%;" data-info="南韓"></div>
+                <div class="marker" style="top: 40.33%; left: 70.91%;" data-info="印度"></div>
+                <div class="marker" style="top: 51.12%; left: 79%;" data-info="越南"></div>
+                <div class="marker" style="top: 47.21%; left: 77.42%;" data-info="泰國"></div>
+                <div class="marker" style="top: 54.09%; left: 78.07%;" data-info="馬來西亞"></div>
+                <div class="marker" style="top: 56.13%; left: 78.72%;" data-info="新加坡"></div>
+                <div class="marker" style="top: 62.83%; left: 82.81%;" data-info="印尼"></div>
+                <div class="marker" style="top: 46.47%; left: 83.09%;" data-info="菲律賓"></div>
+
+
+
+
 
 
 
