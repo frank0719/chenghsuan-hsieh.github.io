@@ -50,10 +50,17 @@ function generateInterestCards(data) {
                 <div id="svg-map-layer"></div>
                 
                 <!-- 足跡標記點：基於百分比定位 -->
-                <div class="marker" style="top: 32.16%; left: 22.96%;" data-info="美國" ></div>
-                <div class="marker" style="top: 34.39%; left: 77.70%;;" data-info="中國" ></div>
-
-
+                <div class="marker" style="top: 32.16%; left: 22.96%;" data-info="美國"></div>
+                <div class="marker" style="top: 34.39%; left: 77.70%;;" data-info="中國"></div>
+                <div class="marker" style="top: 34.01%; left: 85.87%;" data-info="日本"></div>
+                <div class="marker" style="top: 34.39%; left: 85.97%;" data-info="南韓"></div>
+                <div class="marker" style="top: 40.33%; left: 70.91%;" data-info="印度"></div>
+                <div class="marker" style="top: 51.12%; left: 79%;" data-info="越南"></div>
+                <div class="marker" style="top: 47.21%; left: 77.42%;" data-info="泰國"></div>
+                <div class="marker" style="top: 54.09%; left: 78.07%;" data-info="馬來西亞"></div>
+                <div class="marker" style="top: 56.13%; left: 78.72%;" data-info="新加坡"></div>
+                <div class="marker" style="top: 62.83%; left: 82.81%;" data-info="印尼"></div>
+                <div class="marker" style="top: 46.47%; left: 83.09%;" data-info="菲律賓"></div>
 
                 <div id="map-tooltip" class="map-tooltip"></div>
             </div>
@@ -169,10 +176,55 @@ function handleCardClick(event) {
 // ===================================
 // 3. 內容模組集中管理 (符合你所要求的結構解耦)
 // ===================================
+// ===================================
+// 3. 內容模組集中管理 (優化版)
+// ===================================
 const contentMap = {
     'about-content': `
-        <p>一位專注於<strong>數位積體電路設計</strong>的工程師，具備跨領域的生物系統晶片開發與系統整合經驗。</p>
-        <p>主要專注於利用 CMOS 晶片開發適應性、可攜式快速生物檢測平台，實現裝置小型化與端到端檢測分析。</p>`,
+        <div style="display: flex; gap: 35px; align-items: flex-start; margin-top: 15px;">
+            <!-- 左側照片模組 -->
+            <div style="flex: 0 0 220px; text-align: center;">
+                <img src="selfie.jpg" alt="Cheng-Hsuan Hsieh" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: #666; font-size: 0.8em; margin-top: 12px; font-style: italic;">"Logic and Passion."</p>
+            </div>
+            
+            <!-- 右側內容 -->
+            <div style="flex: 1; font-size: 1.05em; line-height: 1.6;">
+                <p style="margin-bottom: 18px; color: #fff; font-weight: 500; letter-spacing: 0.5px;">
+                    個人介紹
+                </p>
+
+                <!-- 第一組：個人規格 (黃橘) -->
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+                    <span style="background: rgba(245, 166, 35, 0.1); color: #F5A623; padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(245, 166, 35, 0.3); font-size: 0.9em;">🗓️ 1998 / 07</span>
+                    <span style="background: rgba(245, 166, 35, 0.1); color: #F5A623; padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(245, 166, 35, 0.3); font-size: 0.9em;">🧬 188 cm</span>
+                </div>
+
+                <!-- 第二組：性格特質 (紫色 - 獨立類別) -->
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+                    <span style="background: rgba(155, 89, 182, 0.1); color: #9B59B6; padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(155, 89, 182, 0.3); font-size: 0.9em; font-weight: bold;">🧠 ENTP (MONK)</span>
+                    <span style="background: rgba(155, 89, 182, 0.1); color: #9B59B6; padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(155, 89, 182, 0.3); font-size: 0.9em;">♌ 太陽獅子 ╳ ♍ 上升處女</span>
+                </div>
+                
+                <!-- 第三組：社會地位 (藍色) -->
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+                    <span style="background: rgba(74, 144, 226, 0.1); color: #4A90E2; padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(74, 144, 226, 0.3); font-size: 0.95em; font-weight: bold;">🏢 MediaTek IC Designer</span>
+                </div>
+
+                <!-- 第四組：生活與品味 (綠色) -->
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+                    <span style="background: rgba(46, 204, 113, 0.1); color: #2ECC71; padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(46, 204, 113, 0.3); font-size: 0.9em;">🏇 馬術 & 高爾夫</span>
+                    <span style="background: rgba(46, 204, 113, 0.1); color: #2ECC71; padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(46, 204, 113, 0.3); font-size: 0.9em;">🏍️ 重機巡航</span>
+                    <span style="background: rgba(46, 204, 113, 0.1); color: #2ECC71; padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(46, 204, 113, 0.3); font-size: 0.9em;">🍵 頂級高山茶</span>
+                    <span style="background: rgba(46, 204, 113, 0.1); color: #2ECC71; padding: 4px 12px; border-radius: 4px; border: 1px solid rgba(46, 204, 113, 0.3); font-size: 0.9em;">🦀 海鮮 & 功夫菜</span>
+                </div>
+
+                <!-- IG 連結 -->
+                <a href="https://www.instagram.com/frank_hsieh723" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; padding: 8px 18px; border-radius: 50px; font-weight: bold; font-size: 0.9em; box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3); transition: transform 0.2s;">
+                    <span style="margin-right: 8px;">📸</span> Follow my Lifestyle on Instagram
+                </a>
+            </div>
+        </div>`,
     
     'education-content': `
         <div class="edu-card-container" id="education-container" data-zoom-class="is-zoomed" data-dim-class="cards-dimmed" data-card-selector=".edu-card">
@@ -427,16 +479,25 @@ async function loadAndInitMap(containerId) {
         const svgText = await response.text();
         mapLayer.innerHTML = svgText;
 
-        // 清除 inline style 讓 CSS 能夠接管
-        const allPaths = mapLayer.querySelectorAll('path, polygon, polyline');
+        // 【修正】：不只清除 style，連 SVG 原生寫死的 fill/stroke 屬性都強制拔掉
+        const allPaths = mapLayer.querySelectorAll('path, polygon, polyline, rect');
         allPaths.forEach(path => {
             path.style.stroke = '';
             path.style.fill = '';
+            // 強制移除寫死在標籤上的屬性
+            path.removeAttribute('fill');
+            path.removeAttribute('stroke');
+            // 如果 SVG 裡面有自帶白色背景的 rect，直接隱藏它
+            if (path.tagName.toLowerCase() === 'rect') {
+                path.style.display = 'none'; 
+            }
         });
 
         // 綁定 Hover 互動邏輯
+        // 綁定 Hover 與 Click 互動邏輯
         const markers = wrapper.querySelectorAll('.marker');
         markers.forEach(marker => {
+            // 原本的 Hover 邏輯
             marker.addEventListener('mouseenter', () => {
                 tooltip.innerHTML = marker.getAttribute('data-info');
                 tooltip.style.opacity = '1';
@@ -453,24 +514,153 @@ async function loadAndInitMap(containerId) {
             marker.addEventListener('mouseleave', () => {
                 tooltip.style.opacity = '0';
             });
+
+            // 【新增的 Click 邏輯】：點擊標記點切換至國家視圖
+            marker.addEventListener('click', (e) => {
+                e.stopPropagation(); // 阻止事件冒泡，避免觸發到外層容器的點擊
+                const countryName = marker.getAttribute('data-info');
+                switchToCountryView(countryName, containerId);
+            });
         });
 
         // 【修正點 2】：防呆版開發者定位工具
-        wrapper.addEventListener('click', (e) => {
-            const rect = wrapper.getBoundingClientRect();
-            const leftPercent = ((e.clientX - rect.left) / rect.width) * 100;
-            const topPercent = ((e.clientY - rect.top) / rect.height) * 100;
+        // wrapper.addEventListener('click', (e) => {
+        //     const rect = wrapper.getBoundingClientRect();
+        //     const leftPercent = ((e.clientX - rect.left) / rect.width) * 100;
+        //     const topPercent = ((e.clientY - rect.top) / rect.height) * 100;
             
-            const styleString = `top: ${topPercent.toFixed(2)}%; left: ${leftPercent.toFixed(2)}%;`;
+        //     const styleString = `top: ${topPercent.toFixed(2)}%; left: ${leftPercent.toFixed(2)}%;`;
             
-            // 改用 prompt 跳出對話框，這招在 file:/// 也能 100% 成功複製
-            prompt('📍 座標抓取成功！請直接按下 Ctrl+C / Cmd+C 複製：', styleString);
-        });
+        //     // 改用 prompt 跳出對話框，這招在 file:/// 也能 100% 成功複製
+        //     prompt('📍 座標抓取成功！請直接按下 Ctrl+C / Cmd+C 複製：', styleString);
+        // });
 
     } catch (err) {
         console.error('地圖檔案載入失敗，請確認 world.svg 與 index.html 在同一資料夾', err);
     }
 }
+
+
+
+// 核心功能：切換視圖
+// 【新增變數】：用來暫存「全球地圖」的 DOM 結構
+let cachedWorldMapHTML = '';
+
+// 核心功能：切換視圖
+async function switchToCountryView(countryName, containerId) {
+    const detailAreaId = (containerId === 'education-container') ? 'education-detail-area' : 'interest-detail-area';
+    const detailArea = document.getElementById(detailAreaId);
+    const data = countryDetails[countryName];
+
+    if (!data) {
+        console.warn(`尚未準備 ${countryName} 的地圖資料`);
+        return;
+    }
+
+    // 在覆蓋內容前，把原本有所有標記點的全球地圖 HTML 存起來
+    if (!detailArea.querySelector('.country-view-container')) {
+        cachedWorldMapHTML = detailArea.innerHTML;
+    }
+
+    // 1. 全球地圖消失 + 變成國家地圖 (加入 Header 與箭頭按鈕) + 右邊文字欄
+    detailArea.innerHTML = `
+        <div class="country-view-container">
+            <!-- 標題與返回按鈕區 -->
+            <div class="country-header">
+                <button class="btn-back-map" title="回到全球地圖">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="country-title">旅遊 - ${countryName}</h3>
+            </div>
+            
+            <!-- 內容區：左地圖、右文字 -->
+            <div class="country-content-layout">
+                <div class="country-map-section" id="country-map-layer">
+                    <p>Loading ${countryName} Map...</p>
+                </div>
+                <div class="country-info-section">
+                    <div class="info-content">
+                        ${data.description}
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // 2. 非同步載入國家 SVG
+    // 2. 非同步載入國家 SVG
+    try {
+        const resp = await fetch(data.svg);
+        const svgText = await resp.text();
+        const mapLayer = detailArea.querySelector('#country-map-layer');
+        mapLayer.innerHTML = svgText;
+
+        // 清除 inline style 讓 CSS 能夠接管 (全部變成螢光藍輪廓)
+        const allPaths = mapLayer.querySelectorAll('path, polygon, polyline, rect');
+        allPaths.forEach(path => {
+            path.style.stroke = '';
+            path.style.fill = '';
+            path.removeAttribute('fill');
+            path.removeAttribute('stroke');
+            if (path.tagName.toLowerCase() === 'rect') {
+                path.style.display = 'none'; 
+            }
+        });
+
+        // 【新增】：針對特定國家（美國）的特定州獨立上色 (優化版：統一科技感高亮)
+        if (countryName === '美國') {
+            // 定義「已造訪」的高質感科技配色
+            const visitedFill = 'rgba(0, 255, 255, 0.25)'; // 淡淡的螢光藍填充
+            const visitedStroke = '#00ffff';               // 螢光藍實線
+            const visitedGlow = 'drop-shadow(0 0 6px rgba(0, 255, 255, 0.8))'; // 發光特效
+
+            allPaths.forEach(path => {
+                const id = (path.getAttribute('id') || '').toLowerCase();
+                const name = (path.getAttribute('name') || '').toLowerCase();
+                const title = (path.getAttribute('title') || '').toLowerCase();
+                const dataId = (path.getAttribute('data-id') || '').toLowerCase();
+                const identifier = `${id} ${name} ${title} ${dataId}`;
+
+                // 將你去過的州放在一個陣列裡，統一判斷，程式碼更簡潔
+                const visitedStates = ['az', 'arizona', 'nv', 'nevada'];
+                
+                // 如果該州的名字存在於「已造訪」名單中
+                const isVisited = visitedStates.some(state => identifier.includes(state));
+
+                if (isVisited) {
+                    // 套用高亮特效
+                    path.style.setProperty('fill', visitedFill, 'important');
+                    path.style.setProperty('stroke', visitedStroke, 'important');
+                    path.style.setProperty('stroke-width', '1.5px', 'important'); // 邊框稍微加粗
+                    path.style.setProperty('filter', visitedGlow, 'important');
+                    
+                    // 讓它在最上層顯示，發光才不會被旁邊的線遮住
+                    path.parentNode.appendChild(path); 
+                }
+            });
+        }
+    } catch (err) {
+        detailArea.querySelector('#country-map-layer').innerHTML = `<p>無法載入 ${countryName} 地圖，請確認 ${data.svg} 是否存在</p>`;
+    }
+
+    // 3. 綁定「回到全球」箭頭按鈕事件
+    detailArea.querySelector('.btn-back-map').onclick = () => {
+        detailArea.innerHTML = cachedWorldMapHTML;
+        loadAndInitMap(containerId); 
+    };
+}
+
+const countryDetails = {
+    '美國': {
+        svg: 'usa.svg',
+        description: '<p>拉斯維加斯、亞歷桑那。</p>'
+        }
+};
+
+
+
+// *** 重要：必須執行函式 ***
+
 
                 // <div class="marker" style="top: 39.03%; left: 26.58%;" data-info="<h3>西雅圖</h3><p>美國</p>"></div>
                 // <div class="marker" style="top: 43.68%; left: 27.42%;" data-info="<h3>拉斯維加斯</h3><p>美國</p>"></div>

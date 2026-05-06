@@ -605,3 +605,176 @@ body.content-open .nav-bar {
     0% { transform: scale(1); opacity: 0.8; }
     100% { transform: scale(3.5); opacity: 0; }
 }
+
+/* 國家視圖容器 */
+/* 國家視圖主容器 */
+.country-view-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    animation: fadeIn 0.4s ease;
+}
+
+/* 頂部標題區 (返回箭頭 + 標題) */
+/* -------------------------------------------
+   國家視圖主容器 & 標題區 (改為科技風字體與邊線)
+------------------------------------------- */
+.country-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3); /* 把灰線改成微微發光的螢光藍線 */
+}
+
+/* 標題改成螢光藍 + 微微發光 */
+.country-title {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #00ffff; 
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+}
+
+/* 返回箭頭：預設螢光藍，Hover時變亮 */
+.btn-back-map {
+    background: transparent;
+    border: none;
+    color: #00ffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.btn-back-map:hover {
+    color: #ffffff; /* 移上去變成純白 */
+    transform: translateX(-5px); 
+    text-shadow: 0 0 8px #00ffff; /* 移上去增加發光特效 */
+}
+
+/* -------------------------------------------
+   右側文字區 (拔掉白底，改成深色科技面板)
+------------------------------------------- */
+.country-info-section {
+    flex: 1;
+    padding: 20px;
+    /* 改成深藍/深灰的半透明底，或是直接寫 transparent 全透明 */
+    background: rgba(0, 20, 30, 0.5); 
+    border-left: 1px solid rgba(0, 255, 255, 0.3); /* 左側分隔線改成螢光藍 */
+    border-radius: 8px; /* 加上一點圓角更有質感 */
+    height: 100%;
+    color: #e0e0e0; /* 內文改成淺灰/白色，在深色底上才清楚 */
+    box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.05); /* 內發光，增加一點面板的立體感 */
+    line-height: 1.6;
+}
+
+/* 如果你的內容裡面有用到 <h3> 或 <p>，確保它們的顏色也是淺色 */
+.country-info-section h3 {
+    color: #00ffff; /* 內容小標題也用螢光藍 */
+    margin-top: 0;
+}
+
+.country-info-section p {
+    color: #cccccc; /* 一般段落文字 */
+}
+
+/* 好看的返回符號按鈕 */
+.btn-back-map {
+    background: transparent;
+    border: none;
+    color: #555;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* 游標移上去時的質感動畫 (變色 + 微微向左移) */
+.btn-back-map:hover {
+    color: #007bff; /* 可以改成你的主題色 */
+    transform: translateX(-5px); 
+}
+
+.country-title {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 下方佈局：左地圖、右文字並排 */
+.country-content-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+.country-map-section {
+    flex: 1;
+    background: transparent; /* 移除原本的 #f9f9f9 白底 */
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.country-map-section svg path,
+.country-map-section svg polygon,
+.country-map-section svg polyline {
+    fill: transparent !important; /* 內部透明 */
+    stroke: #00ffff !important;   /* 螢光藍色碼 (Cyan) */
+    stroke-width: 1px !important; /* 線條粗細 */
+    transition: fill 0.3s ease, filter 0.3s ease;
+}
+.country-map-section svg path:hover,
+.country-map-section svg polygon:hover {
+    fill: rgba(0, 255, 255, 0.2) !important; /* 填入淡淡的螢光藍 */
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.8)); /* 邊框發光效果 */
+    cursor: pointer;
+}
+.country-map-section svg {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+}
+
+.country-info-section {
+    flex: 2; /* 【修改這裡】從 1 改成 2，讓文字放大佔據 2/3 空間 */
+    padding: 20px;
+    background: rgba(0, 20, 30, 0.5); /* 科技感深色半透明底 */
+    border-left: 1px solid rgba(0, 255, 255, 0.3); /* 螢光藍分隔線 */
+    border-radius: 8px; 
+    height: 100%;
+    color: #e0e0e0; /* 淺灰色內文，在深底上才清楚 */
+    box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.05); /* 內發光立體感 */
+    line-height: 1.6;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 造訪計數器固定在右下角 */
+.visitor-counter-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+.visitor-counter-fixed:hover {
+    opacity: 1;
+}
