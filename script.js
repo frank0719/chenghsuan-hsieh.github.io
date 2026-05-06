@@ -61,6 +61,15 @@ function generateInterestCards(data) {
                 <div class="marker" style="top: 56.13%; left: 78.72%;" data-info="新加坡"></div>
                 <div class="marker" style="top: 62.83%; left: 82.81%;" data-info="印尼"></div>
                 <div class="marker" style="top: 46.47%; left: 83.09%;" data-info="菲律賓"></div>
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+>>>>>>> eb49b942fc36de322ce7e6fb9b9aa722c8a7065b
 
                 <div id="map-tooltip" class="map-tooltip"></div>
             </div>
