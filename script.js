@@ -236,7 +236,11 @@ const contentMap = {
         </div>`,
     
     'education-content': `
+        <!-- 學歷區塊 -->
+        <h3 class="section-title" style="margin-bottom: 10px;">教育背景</h3>
         <div class="edu-card-container" id="education-container" data-zoom-class="is-zoomed" data-dim-class="cards-dimmed" data-card-selector=".edu-card">
+            
+            <!-- 陽明交大碩士 -->
             <div class="edu-card card-item" data-card-id="nycu">
                 <img src="nycu_logo.png" alt="陽明交大校徽">
                 <strong>國立陽明交通大學</strong>
@@ -248,11 +252,56 @@ const contentMap = {
                     </ul>
                 </div>
             </div>
-            <!-- ... 其他學歷卡片 ... -->
+
+            <!-- 清大材料學士 -->
+            <div class="edu-card card-item" data-card-id="nthu">
+                <img src="nthu.png" alt="清華大學校徽">
+                <strong>國立清華大學</strong>
+                <p>材料科學工程學系，學士</p>
+                <div class="card-extra-detail hidden-content">
+                    <h3>國立清華大學 - 材料科學工程學系</h3>
+                    <ul>
+                        <li>[高墒合金研究]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 台中一中 -->
+            <div class="edu-card card-item" data-card-id="tcfsh">
+                <img src="tcfsh.png" alt="台中一中校徽">
+                <strong>臺中第一高級中等學校</strong>
+                <p>高中部，畢業</p>
+                <div class="card-extra-detail hidden-content">
+                    <h3>臺中第一高級中等學校</h3>
+                    <ul>
+                        <li>科展佳作</li>
+                    </ul>
+                </div>
+            </div>
+            
         </div>
+
+        <hr style="margin: 20px 0;">
+
+        <!-- 經歷區塊 -->
+        <h3 class="section-title" style="margin-bottom: 10px;">工作經歷</h3>
+        <div class="edu-card-container" id="work-container" data-zoom-class="is-zoomed" data-dim-class="cards-dimmed" data-card-selector=".edu-card">
+            
+            <!-- 聯發科現職 -->
+            <div class="edu-card card-item" data-card-id="mediatek">
+                <img src="mtk.png" alt="聯發科Logo">
+                <strong>聯發科技 (MediaTek)</strong>
+                <p>[IC硬體設計工程師] (現職)</p>
+                <div class="card-extra-detail hidden-content">
+                    <h3>聯發科技 (MediaTek) - [IC硬體設計工程師]</h3>
+                </div>
+            </div>
+
+        </div>
+
         <!-- 容器 2: 學經歷獨立詳細內容區域 -->
-        <div id="education-detail-area" class="card edu-container empty-detail">
-            點擊上方卡片以查看詳細經歷...
+        <div id="education-detail-area" class="card edu-container empty-detail" style="margin-top: 20px;">
+            點擊上方卡片以查看詳細學經歷...
         </div>`,
 
     'skills-content': generateSkillCards(skillsData),
